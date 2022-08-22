@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import DashboardComponent from './components/DashboardComponent';
 import { INITIAL_DATA } from './components/constant';
 
-const socket = io("http://localhost:8000");
+const socket = io(`${process.env.REACT_APP_SERVER_END_POINT}`);
 
 function App() {
   // init socket
