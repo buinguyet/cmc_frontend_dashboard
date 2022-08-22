@@ -47,7 +47,7 @@ function DashboardComponent(props: IDashboardComponent) {
     // when disconnect=> refresh data
     useEffect(() => {
         socket.emit("count", initialData);
-    }, []);
+    }, [initialData, socket]);
 
     // on event count to update state
     useEffect(() => {
