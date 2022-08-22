@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 import DashboardComponent from './components/DashboardComponent';
 import { INITIAL_DATA } from './components/constant';
 
-const socket = io(`${process.env.REACT_APP_SERVER_END_POINT}`);
+const socket = io('https://cmcbackendweb.azurewebsites.net');
 
 function App() {
   // init socket
