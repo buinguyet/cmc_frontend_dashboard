@@ -75,7 +75,7 @@ function DashboardComponent(props: IDashboardComponent) {
             <div style={{ display: "flex", flexDirection: "row", justifyContent: 'center' }}>
                 {
                     data.map((item: IData, index: number) => (
-                        <StatusComponent index={index} item={item} />
+                        <StatusComponent key={index} index={index} item={item} />
                     ))
                 }
             </div>
