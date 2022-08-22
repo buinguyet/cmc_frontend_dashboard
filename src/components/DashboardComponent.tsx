@@ -51,22 +51,8 @@ function DashboardComponent(props: IDashboardComponent) {
 
     // on event count to update state
     useEffect(() => {
-        socket.on("count", (onData: IData | IData[]) => {
-            if (Array.isArray(onData)) {
-                setData(onData);
-            } else {
-                const newData = data.map((obj: IData) => {
-                    const newObj = { ...obj };
-
-                    if (newObj.label === onData.label) {
-                        return { ...newObj, value: newObj.value + 1 };
-                    }
-
-                    return newObj;
-                });
-
-                setData(newData);
-            }
+        socket.on("count", (onData: IData[]) => {
+            setData(onData);
         })
     }, [data, socket]);
 
