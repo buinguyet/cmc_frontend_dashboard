@@ -1,36 +1,36 @@
 import React, { useState, useEffect } from "react"
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+// import {
+//     Chart as ChartJS,
+//     CategoryScale,
+//     LinearScale,
+//     BarElement,
+//     Title,
+//     Tooltip,
+//     Legend,
+// } from 'chart.js';
+// import { Bar } from 'react-chartjs-2';
 import { Socket } from 'socket.io-client';
-import { delay, getDataChart } from "./shared";
+// import { delay, getDataChart } from "./shared";
 import StatusComponent from "./StatusComponent";
 import type { IData } from "./types";
 
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-);
+// ChartJS.register(
+//     CategoryScale,
+//     LinearScale,
+//     BarElement,
+//     Title,
+//     Tooltip,
+//     Legend
+// );
 
-export const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top' as const,
-        },
-    },
-};
+// export const options = {
+//     responsive: true,
+//     plugins: {
+//         legend: {
+//             position: 'top' as const,
+//         },
+//     },
+// };
 
 interface IDashboardComponent {
     socket: Socket,
@@ -39,10 +39,12 @@ interface IDashboardComponent {
 
 function DashboardComponent(props: IDashboardComponent) {
     const { socket, initialData } = props;
-    const initialDataChart = getDataChart('Color Count', initialData);
+    // const initialDataChart = getDataChart('Color Count', initialData);
 
     const [data, setData] = useState(initialData);
-    const [dataChart, setDataChart] = useState(initialDataChart);
+    // const initialDataChart = getDataChart('Color Count', data);
+
+    // const [dataChart, setDataChart] = useState(initialDataChart);
 
     // when disconnect=> refresh data
     useEffect(() => {
@@ -57,17 +59,17 @@ function DashboardComponent(props: IDashboardComponent) {
     }, [data, socket]);
 
     // update chart after 5s
-    useEffect(() => {
-        const updateDataChart = async () => {
-            await delay(5000);
+    // useEffect(() => {
+    //     const updateDataChart = async () => {
+    //         await delay(5000);
 
-            const dataChart = getDataChart('Color Count', data);
+    //         const dataChart = getDataChart('Color Count', data);
 
-            setDataChart(dataChart);
-        }
+    //         setDataChart(dataChart);
+    //     }
 
-        updateDataChart();
-    }, [data])
+    //     updateDataChart();
+    // }, [data])
 
     return (
         <React.Fragment>
@@ -80,9 +82,9 @@ function DashboardComponent(props: IDashboardComponent) {
                 }
             </div>
 
-            <div style={{ paddingTop: 20 }}>
+            {/* <div style={{ paddingTop: 20 }}>
                 <Bar options={options} data={dataChart} />
-            </div>
+            </div> */}
         </React.Fragment>
     )
 }
