@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'cmcDashboardFE'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_15ED572C08C64455B5811C2BFABDE02A }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_64D69C2B603A4EF79EC37DAA3F2023F2 }}
           package: .
